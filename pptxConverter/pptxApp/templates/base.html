@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>PPTX->IMAGE converter</title>
+    <script type="text/javascript" src="{{ STATIC_URL }}js/jquery-2.0.3.js"></script>
+    <script type="text/javascript" src="{{ STATIC_URL }}js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="{{ STATIC_URL }}css/bootstrap.min.css"/>
+    {% block head %}{% endblock %}
+</head>
+<body>
+<nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+        <div class="collapse navbar-collapse">
+            <ul class="nav navbar-nav">
+                <li><a href="/">Home</a></li>
+                <li><a href="/upload/">Upload presetation</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li class="dropdown">
+                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">Existing Presentations <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        {% for i in presentations_list %}
+                            <li><a href="/?title={{ i.title }}">{{ i.title }}</a></li>
+                        {% empty %}
+                            <li>Sorry, there are no available presentations yet.</li>
+                        {% endfor %}
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+{% block body %}{% endblock %}
+</body>
+</html>

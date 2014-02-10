@@ -1,0 +1,20 @@
+NOTE!!!
+This application was tested on the ubuntu12.04 so if you have some another OS, you should change
+converting commands in the settings.py file CMD_COMMANDS variable. The queue of commands is important.
+Please replace files names with existing templates (such as {presetation_name} and {image_name})
+
+If you need this pplication to be deployed on the ubuntu12.04 OS, you should install the following system packages:
+sudo apt-get install  unoconv
+sudo apt-get install imagemagick
+
+To install all python packages, please run command:
+/path/to/your/virtualenv/interpreter/pip install -r requirements.txt
+
+Then enter your MySQL server and make following commands:
+create database pptx;
+grant all privileges on pptx.* to 'pptx'@'localhost' identified by 'pptx';
+
+After that just apply the pptxConverter.sql script to your database:
+mysql -upptx -ppptx pptx < pptxConverter.sql
+
+Complete! Enjoy the online pptx->jpg converter:)

@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block head %}
+    <link rel="stylesheet" href="{{ STATIC_URL }}css/blueimp-galery.min.css"/>
+    <link rel="stylesheet" href="{{ STATIC_URL }}css/bootstrap-image-gallery.min.css"/>
+{% endblock %}
+
+{% block body %}
+    {% if not presentation %}
+        <h1 class="text-center">Please select some presentation</h1>
+    {% else %}
+        <div class="text-center">
+            {% for i in presentation %}
+                <a href="{{ i.image }}" data-galery>
+                    <img src="{{ i.image_min }}"/>
+                </a>
+            {% endfor %}
+        </div>
+    {% endif %}
+{% endblock %}

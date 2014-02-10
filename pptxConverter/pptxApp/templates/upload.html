@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block body %}
+<div class="row">
+    <div class="col-md-offset-4 col-md-4">
+        <form action="" method="post" enctype="multipart/form-data">{% csrf_token %}
+            <div class="form-group">
+                <label for="id_title">Title</label>
+                <input type="text" class="form-control" id="id_title" name="title"/>
+            </div>
+            <div class="form-group">
+                <label for="id_presentation">Presentation</label>
+                <input type="file" id="id_presentation" name="presentation"/>
+                <p class="help-block">Supported types are pptx and ppt</p>
+            </div>
+            <input type="submit" class="btn btn-primary" value="Convert"/>
+        </form>
+    </div>
+</div>
+{% endblock %}
